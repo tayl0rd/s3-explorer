@@ -1,14 +1,14 @@
 <h1> Contents </h1>
 <% @contents.each do |object| %>
   <div>
-    <%= object %>
+    <%= link_to object, ApplicationHelper::BASE_URL + "#{object}" %>
   </div>
 <% end %>
 
 <h1> Directories </h1>
 <% @directories.each do |directory| %>
   <div>
-    <%= directory %>
+    <%= link_to directory, "http://localhost:3000/patients/" + "#{directory}" %>
   </div>
 <% end %>
 
