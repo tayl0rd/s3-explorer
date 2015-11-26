@@ -1,15 +1,23 @@
-<% @directories.each do |directory| %>
-  <div>
-    <i class="fa fa-folder"></i>
-    <%= link_to directory, directory_path(directory) %>
-  </div>
-<% end %>
+<div>
+  <i class="fa fa-angle-left"></i> <%= up_directory %>
+</div>
+<div>
+  <i class="fa fa-folder-open-o"></i> <%= title %>
+</div>
 
-<% @contents.each do |object| %>
-  <div>
-    <%= link_to object, signed_url(object) %>
-  </div>
-<% end %>
+<div class = "directories">
+  <% @directories.each do |directory| %>
+    <div>
+      <i class="fa fa-folder-o"></i>
+      <%= link_to directory, directory_path(directory) %>
+    </div>
+  <% end %>
 
+  <% @contents.each do |object| %>
+    <div>
+      <%= link_to object, signed_url(object) %>
+    </div>
+  <% end %>
+</div>
 
 

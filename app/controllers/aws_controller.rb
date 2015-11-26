@@ -9,6 +9,7 @@ class AwsController < ApplicationController
     prefix = params[:prefix] + '/'
     objects = AWS.list_objects(bucket: BUCKET, prefix: prefix,  delimiter: '/');
     set_contents_and_directories(objects)
+    @contents = strip_slash_from_contents
   end
 
   private
@@ -24,6 +25,14 @@ class AwsController < ApplicationController
 
   def set_directories(objects)
     objects.common_prefixes.map(&:prefix)
+  end
+
+  def strip_slash_from_contents
+    if @contents
+      @contents.map do |object|
+        object.split('/').last
+      end
+    end
   end
 
 end
