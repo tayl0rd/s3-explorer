@@ -15,6 +15,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'aws-sdk', ' ~> 2'
 
+gem 'normalize-rails'
+gem 'font-awesome-rails'
+
 group :development, :test do 
   gem 'pry'
   gem 'pry-rails'
