@@ -15,7 +15,7 @@
 
   <% @contents.each do |object| %>
     <div>
-      <%= link_to object, signed_url(object) %>
+      <%= link_to object, signed_url(title,object) %>
     </div>
   <% end %>
 </div>

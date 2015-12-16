@@ -1,7 +1,7 @@
 module AwsHelper
 
-  def signed_url(key)
-    SIGNER.presigned_url(:get_object, bucket: BUCKET, key: key)
+  def signed_url(prefix,key)
+    SIGNER.presigned_url(:get_object, bucket: BUCKET, key: prefix + key)
   end
 
   def title
