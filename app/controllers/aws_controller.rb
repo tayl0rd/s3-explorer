@@ -8,18 +8,29 @@ class AwsController < ApplicationController
   def subdirectory
     prefix = params[:prefix] + '/'
     objects = AWS.list_objects(bucket: BUCKET, prefix: prefix,  delimiter: '/');
-    set_contents_and_directories(objects)
+    keys  = get_keys(objects)
+    if keys.first == prefix
+      @contents = []
+    else
+      @contents = set_contents(keys)
+    end
+    @directories = set_directories(objects)
   end
 
   private
 
+  def get_keys(objects)
+    objects.contents.map(&:key)
+  end
+
   def set_contents_and_directories(objects)
-    @contents = set_contents(objects)
+    keys = get_keys(objects)
+    @contents = set_contents(keys)
     @directories = set_directories(objects)
   end
 
-  def set_contents(objects)
-    objects.contents.map(&:key).map do |key|
+  def set_contents(keys)
+    keys.map do |key|
       key.split('/').last
     end
   end

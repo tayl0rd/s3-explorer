@@ -8,10 +8,14 @@ module AwsHelper
     params[:prefix] + '/'
   end
 
+  def name(dir)
+    dir.split('/').last + '/'
+  end
+
   def up_directory
     up = get_up_directory
     if up 
-    link_to up, directory_path(up)
+      link_to up, directory_path(up)
     else
       link_to 'root', patients_path
     end

@@ -6,10 +6,10 @@
 </div>
 
 <div class = "directories">
-  <% @directories.each do |directory| %>
+  <% @directories.each do |dir| %>
     <div>
       <i class="fa fa-folder-o"></i>
-      <%= link_to directory, directory_path(directory) %>
+      <%= link_to name(dir), directory_path(dir) %>
     </div>
   <% end %>
 
