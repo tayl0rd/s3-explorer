@@ -6,18 +6,32 @@
 </div>
 
 <div class = "directories">
-  <% @directories.each do |dir| %>
-    <div>
-      <i class="fa fa-folder-o"></i>
-      <%= link_to name(dir), directory_path(dir) %>
-    </div>
-  <% end %>
+  <table class = "table-minimal">
+    <thead>
+      <tr>
+        <th> Object </th>
+        <th> Uploaded </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @directories.each do |dir| %>
+        <tr>
+          <td>
+            <i class="fa fa-folder-o"></i>
+            <%= link_to name(dir), directory_path(dir) %>
+          </td>
+          <td>
+            Date
+          </td> 
+        </tr>
+      <% end %>
 
-  <% @contents.each do |object| %>
-    <div>
-      <%= link_to object, signed_url(title,object) %>
-    </div>
-  <% end %>
+      <% @contents.each do |object| %>
+        <tr>
+          <td><%= link_to object, signed_url(title,object) %></td>
+          <td>Date</td>
+        </tr>
+      <% end %>
 </div>
 
 

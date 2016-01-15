@@ -17,6 +17,8 @@ gem 'aws-sdk', ' ~> 2'
 
 gem 'normalize-rails'
 gem 'font-awesome-rails'
+gem 'bourbon'
+gem 'neat'
 
 group :development, :test do 
   gem 'pry'
